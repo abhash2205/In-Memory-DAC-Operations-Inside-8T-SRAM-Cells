@@ -144,7 +144,7 @@ Fig. 6 below demonstrates the simulated output which establishes the successful 
 _Fig. 6. Simulated output showing (a) inputs signal to the circuit, and (b) staircase output current which is typical to the digital to analog convertor (DAC)._<br>
 <br>[🠉 Back to Top](#contents)
 ## Acknowledgement
-[Mixed Signal Circuit Design and Simulation Marathon using eSim](https://hackathon.fossee.in/esim/) conducted by: 
+[Mixed Signal Circuit Design and Simulation Marathon using eSim](https://hackathon.fossee.in/esim/) conducted by: <br>
 [Indian Institute of Technology Bombay](https://www.iitb.ac.in/); <br>
 [FOSSEE](https://fossee.in/); <br>
 [Spoken Tutorial](https://spoken-tutorial.org/); <br>
@@ -156,6 +156,6 @@ Kunal Ghosh, Co-founder, VSD Corp. Pvt. Ltd.; <br>
 Sumanto Kar, IIT Bombay
 <br>[🠉 Back to Top](#contents)
 ## References
-[1] J. Von Neumann, The computer and the brain. Yale University Press, 2012.
+[1] J. Von Neumann, The computer and the brain. Yale University Press, 2012.<br>
 [2] S. Jeloka, N. B. Akesh, D. Sylvester, and D. Blaauw, “A 28nm configurable memory using push-rule 6T bit cell enabling logic-in-memory”, IEEE J. Solid-State Circuits, vol. 51, no. 4. Pp. 1009-1021, Apr. 2016.
 <br>[🠉 Back to Top](#contents)
