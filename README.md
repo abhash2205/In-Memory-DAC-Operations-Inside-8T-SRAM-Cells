@@ -19,7 +19,7 @@ bottleneck, DAC, SRAM, von-Neumann
 ## Tools Used
 [eSim](https://esim.fossee.in/home) (previously known as Oscad / FreeEDA) is a free/libre and open source EDA tool for circuit design, simulation, analysis and PCB design. It is an integrated tool built using free/libre and open source software such as [KiCad](http://www.kicad-pcb.org/), [Ngspice](http://ngspice.sourceforge.net/), [Verilator](https://www.veripool.org/verilator/), [makerchip-app](https://pypi.org/project/makerchip-app/), [sandpiper-saas](https://pypi.org/project/sandpiper-saas/) and [GHDL](http://ghdl.free.fr/). eSim is released under GPL.
 ![eSim](https://user-images.githubusercontent.com/100511409/157074547-e9c855cf-ddaa-41e1-a44f-8071950f172b.jpg)<br>
-Fig. 1. FOSSEE eSim software.
+_Fig. 1. FOSSEE eSim software._<br>
 <br>[🠉 Back to Top](#contents)
 ## 1. Introduction
 Most of the recent day processors works on von-Neumann architecture [1](#references). In von-Neumann architecture program and data units are spatially, separately stored at different locations on the chip, leads to significantly high delay and energy consumption due to frequent data transfer between physically separated memory and computing cores. This problem is further exacerbated for data intensive applications such as in AI/ML, DSP processors, etc. By enabling computations within memory, significant improvements, both in energy efficiency and throughput are expected [2](#references). Digital to analog convertor (DAC) is a key block to these applications to interface analog signal with digital processors/algorithms. So, in this work, we will design an in-memory DAC inside 8T SRAM cell.
@@ -28,14 +28,14 @@ Most of the recent day processors works on von-Neumann architecture [1](#referen
 The 8T SRAM cell is shown in Fig. 2. It has same write operations as that of 6T SRAM cells, but for read operations different port RBL is used by activating RWL line. An 8T-SRAM, without modifying its basic circuit structure, can behave as a digital to analog converter (DAC), without affecting the bits stored in the SRAM cell. Consider an array of 4 cells connected as shown in Fig. 2. Under normal memory operations, the source terminal of M7 is grounded but for DAC operation SL (source line) of same row are all connected to _vin_. Thus, the current flowing through RBL is proportional to _vin_, and also to the conductance of transistor M1 and M2 in Fig. 2. When logic ‘1’ is stored in memory cell, conductance of M1 is very high but when logic ‘0’ is stored in memory cell, the conductance of M1 is almost negligible, i.e., it does not conducts at all. Another parameter on which current will depend are (W/L) ratio of mosfet M1 and M2 present in read port of the 8T-SRAM cell. It is well known that current through enhancement mosfet is directly proportional to its (W/L) ratio. Hence, properly sizing the (W/L) ratios of mosfet M1 and M2 in each column we can obtained our proposed digital to analog converter.<br>
 For our proposed structure of 8T-SRAM array cells, current _I_ will be sum of currents through RBL of each cell. Now consider that the ratio of (W/L) of mosfet M1 and M2 used in column 1 through 4 is 8: 4: 2: 1 as shown in Fig. 1 (we will keep the sizes of mosfet M1 and M2 same in each column). Hence, their conductance will be in the same ratio, since conductance will be directly proportional to (W/L) ratio. This will generate output current _I_, which will be proportional to the analog equivalent of digital bits stored inside SRAM. _I_ = _K_(2<sup>3</sup>b<sub>3</sub>+2<sup>2</sup>b<sub>2</sub>+2<sup>1</sup>b<sub>1</sub>+2<sup>0</sup>b<sub>0</sub>), where _K_ is some constant.
 ![Schematic](https://user-images.githubusercontent.com/100511409/157077638-687b5181-f9a2-4a4a-a796-9710683ec4b7.jpg)<br>
-Fig. 2. Schematic of in-memory DAC. The designing of 6TSRAM in makerchip is discussed in upcoming sections.
+_Fig. 2. Schematic of in-memory DAC. The designing of 6TSRAM in makerchip is discussed in upcoming sections._<br>
 <br>[🠉 Back to Top](#contents)
 ## 3. Simulation Results
 First, the 6T SRAM were designed and simulated using the verilog HDL on makerchip plugin integrated in eSim as shown in Fig. 3 and Fig. 4 below. The 6T SRAM design contains input data line-- din (data-in), control line-- wen (write-enable) and output line-- q (cell output) as can be observed from verilog file.
 ![eSim_MakerChip](https://user-images.githubusercontent.com/100511409/157078390-9bc3a44d-3d9d-4aad-866b-332e63c5d125.PNG)<br>
-Fig. 3. Loading of top module verilog file in makerchip integrated in eSim.<br>
+_Fig. 3. Loading of top module verilog file in makerchip integrated in eSim._<br><br>
 ![MakerChip](https://user-images.githubusercontent.com/100511409/157078492-f89c1abb-96ec-4936-8819-355aac9db590.PNG)<br>
-Fig. 4. Logic verification of 6T SRAM cell in makerchip.<br>
+_Fig. 4. Logic verification of 6T SRAM cell in makerchip._<br><br>
 The detailed verilog file is discussed below:
 ```
 module sram6T(din, wen, q);
@@ -48,7 +48,7 @@ endmodule
 ```
 Next, the symbol of the 6T SRAM cell were created using the ngveri tab which combines the features of NgSpice and Verilator to support mixed-mode simulation (see Fig. 2 for sram6t symbol). The same symbol were then imported in KiCad schematic editor and then rest of the circuit were designed as shown in Fig. 2. The ratio of (W/L) of transistors corresponding to columns storing bits- b0, b1, b2, b3 respectively, were kept in the ratio 8:4:2:1 as discussed earlier. Then, the netlist were generated followed by editing of  component values such as-- power sources, mosfet models, etc. as shown in Fig. 5 below. Finally, the final output netlist were generated which were simulated whose ouput is presented in next subsection.
 ![eSim_Ki2Ng](https://user-images.githubusercontent.com/100511409/157082068-5bcb919b-ce6c-4556-8930-5a0db62c3efe.PNG)<br>
-Fig. 5. Editing mosfet models, (W/L) ratio and other component values.
+_Fig. 5. Editing mosfet models, (W/L) ratio and other component values._<br>
 ### 3.1. Netlist
 ```
 * c:\users\ece-80\documents\iitb_hackathon\inmemdac\inmemdac.cir
@@ -141,7 +141,7 @@ plot i(v_u18)
 ### 3.2. Simulated Waveforms
 Fig. 6 below demonstrates the simulated output which establishes the successful simulation of the in-memory SRAM based DAC.
 ![DAC_OP](https://user-images.githubusercontent.com/100511409/157084038-f47e199b-4eff-4134-8fd1-f114c47bcd14.png)<br>
-Fig. 6. Simulated output showing (a) inputs signal to the circuit, and (b) staircase output current which is typical to the digital to analog convertor (DAC).
+_Fig. 6. Simulated output showing (a) inputs signal to the circuit, and (b) staircase output current which is typical to the digital to analog convertor (DAC)._<br>
 <br>[🠉 Back to Top](#contents)
 ## Acknowledgement
 [Mixed Signal Circuit Design and Simulation Marathon using eSim](https://hackathon.fossee.in/esim/) conducted by: 
