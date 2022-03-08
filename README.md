@@ -47,8 +47,10 @@ end
 endmodule
 ```
 Next, the symbol of the 6T SRAM cell were created using the ngveri tab which combines the features of NgSpice and Verilator to support mixed-mode simulation (see Fig. 2 for sram6t symbol). The same symbol were then imported in KiCad schematic editor and then rest of the circuit were designed as shown in Fig. 2. The ratio of (W/L) of transistors corresponding to columns storing bits- b0, b1, b2, b3 respectively, were kept in the ratio 8:4:2:1 as discussed earlier. Then, the netlist were generated followed by editing of  component values such as-- power sources, mosfet models, etc. as shown in Fig. 5 below. Finally, the final output netlist were generated which were simulated whose ouput is presented in next subsection.
+![Symbol_Convertor](https://user-images.githubusercontent.com/100511409/157182752-2d82524a-70a6-4518-a8fb-9df20f69323a.PNG)<br>
+_Fig. 5.Verilog to NgSpice Converter._
 ![eSim_Ki2Ng](https://user-images.githubusercontent.com/100511409/157082068-5bcb919b-ce6c-4556-8930-5a0db62c3efe.PNG)<br>
-_Fig. 5. Editing mosfet models, (W/L) ratio and other component values._<br>
+_Fig. 6. Editing mosfet models, (W/L) ratio and other component values._<br>
 ### 3.1. Netlist
 ```
 * c:\users\ece-80\documents\iitb_hackathon\inmemdac\inmemdac.cir
@@ -139,9 +141,9 @@ plot i(v_u18)
 .end
 ```
 ### 3.2. Simulated Waveforms
-Fig. 6 below demonstrates the simulated output which establishes the successful simulation of the in-memory SRAM based DAC.
+Fig. 7 below demonstrates the simulated output which establishes the successful simulation of the in-memory SRAM based DAC.
 ![DAC_OP](https://user-images.githubusercontent.com/100511409/157084038-f47e199b-4eff-4134-8fd1-f114c47bcd14.png)<br>
-_Fig. 6. Simulated output showing (a) inputs signal to the circuit, and (b) staircase output current which is typical to the digital to analog convertor (DAC)._<br>
+_Fig. 7. Simulated output showing (a) inputs signal to the circuit, and (b) staircase output current which is typical to the digital to analog convertor (DAC)._<br>
 <br>[🠉 Back to Top](#contents)
 ## Acknowledgement
 [Mixed Signal Circuit Design and Simulation Marathon using eSim](https://hackathon.fossee.in/esim/) conducted by: <br>
