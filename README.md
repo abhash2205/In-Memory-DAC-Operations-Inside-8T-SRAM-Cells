@@ -36,7 +36,7 @@ First, the 6T SRAM were designed and simulated using the verilog HDL on makerchi
 _Fig. 3. Loading of top module verilog file in makerchip integrated in eSim._<br><br>
 ![MakerChip](https://user-images.githubusercontent.com/100511409/157078492-f89c1abb-96ec-4936-8819-355aac9db590.PNG)<br>
 _Fig. 4. Logic verification of 6T SRAM cell in makerchip._<br><br>
-The detailed verilog file is discussed below:
+The verilog code of 6T SRAM cell is shown below:
 ```
 module sram6T(din, wen, q);
 input din, wen;
