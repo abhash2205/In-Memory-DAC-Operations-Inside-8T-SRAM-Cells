@@ -141,7 +141,7 @@ plot i(v_u18)
 .end
 ```
 ### 3.2. Simulated Waveforms
-Fig. 7 below demonstrates the simulated output which establishes the successful simulation of the in-memory SRAM based DAC.
+Fig. 7 below demonstrates the simulated output which is similar to the staircase waveform typical to the digital to analog converter. Thus, the simulated results establishes the successful simulation of the in-memory SRAM based DAC.
 ![DAC_OP](https://user-images.githubusercontent.com/100511409/157084038-f47e199b-4eff-4134-8fd1-f114c47bcd14.png)<br>
 _Fig. 7. Simulated output showing (a) inputs signal to the circuit, and (b) staircase output current which is typical to the digital to analog convertor (DAC)._<br>
 <br>[🠉 Back to Top](#contents)
